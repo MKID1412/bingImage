@@ -9,7 +9,7 @@ headers = {
 
 # 获取必应图片 URL
 def get_bing_image_info():
-    url = "https://s.cn.bing.net/HPImageArchive.aspx?format=js&idx=0&n=1"
+    url = "https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1" #国内版https://s.cn.bing.net/HPImageArchive.aspx?format=js&idx=0&n=1
     response = requests.get(url, verify=False, headers=headers)
     data = response.json()
     return "https://www.bing.com" + data["images"][0]["url"],data["images"][0]["copyright"],data["images"][0]["startdate"]
