@@ -23,6 +23,7 @@ jobs:
 
       - name: Run download script
         run: python download_bing_image.py
+        run: python download_bing_image_cn.py
 
       - name: Commit and push changes
         run: |
