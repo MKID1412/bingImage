@@ -2,8 +2,8 @@ name: Download Bing Daily Image
 
 on:
   schedule:
-    # 每天 UTC 时间 0 点运行（北京时间 8 点）
-    - cron: "0 0 * * *"
+    # 每天 UTC 时间 1 点运行（北京时间 9 点）
+    - cron: "0 1 * * *"
   workflow_dispatch:  # 允许手动触发
 
 jobs:
