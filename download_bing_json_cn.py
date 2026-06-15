@@ -6,13 +6,14 @@ import urllib3
 
 urllib3.disable_warnings()
 headers = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8"
 }
 
 # 获取必应图片 URL
 def get_bing_image_info():
 #https://bing.xinac.net/?page=1
-    url = "https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1" #国际版https://www.bing.com/HPImageArchive.aspx?format=js&idx=1&n=1
+    url = "https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=zh-CN&setmkt=zh-CN" #国际版https://www.bing.com/HPImageArchive.aspx?format=js&idx=1&n=1
     response = requests.get(url, verify=False, headers=headers)
     data = response.json()
     return "https://www.bing.com" + data["images"][0]["url"],data["images"][0]["copyright"],data["images"][0]["enddate"],data["images"][0]["copyrightlink"]
