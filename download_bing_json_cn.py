@@ -43,7 +43,7 @@ def download_image():
             f.write(json.dumps(data,ensure_ascii=False,indent=2))
         print(f"Downloaded and write json to json explorer: {date}.json successs\n标题：{title}\n链接：{image_url}")
     else:
-        print("Failed to download image")
+        print("Failed to download json")
 
 if __name__ == "__main__":
     download_image()
