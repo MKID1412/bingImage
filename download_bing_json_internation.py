@@ -28,7 +28,7 @@ def download_image():
             "copyrightlink":copyrightlink,
             "url": image_url
         }
-        with open(f"json/{date}.json", "w",encoding="utf-8") as f:
+        with open(f"json_internation/{date}.json", "w",encoding="utf-8") as f:
             f.write(json.dumps(data,ensure_ascii=False,indent=2))
         print(f"Downloaded and write json to json_internation explorer: {date}.json successs\n标题：{title}\n链接：{image_url}")
     else:
