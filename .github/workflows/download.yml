@@ -20,9 +20,6 @@ jobs:
 
       - name: Install dependencies
         run: pip install requests
-
-      - name: Run download script
-        run: python download_bing_image.py
         
       - name: Run download img_json_data
         run: python download_bing_json_cn.py
