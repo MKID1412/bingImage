@@ -22,17 +22,25 @@ def download_image():
     image_url, title,date,copyrightlink= get_bing_image_info()
     response = requests.get(image_url,verify=False,headers=headers)
     if response.status_code == 200:
-        os.makedirs("json_internation", exist_ok=True)
+        # 截取年份 YYYY
+        year = date[:4]
+        # 拼接目录 json/2026
+        save_dir = os.path.join("json_internation", year)
+        # 存在则跳过创建
+        os.makedirs(save_dir, exist_ok=True)
+        # 完整文件路径 json_internation/2026/20260831.json
+        json_path = os.path.join(save_dir, f"{date}.json")
+
         data = {
             "copyright": title,
-            "copyrightlink":copyrightlink,
+            "copyrightlink": copyrightlink,
             "url": image_url
         }
-        with open(f"json_internation/{date}.json", "w",encoding="utf-8") as f:
-            f.write(json.dumps(data,ensure_ascii=False,indent=2))
-        print(f"Downloaded and write json to json_internation explorer: {date}.json successs\n标题：{title}\n链接：{image_url}")
+        with open(json_path, "w", encoding="utf-8") as f:
+            f.write(json.dumps(data, ensure_ascii=False, indent=2))
+        print(f"Downloaded and write json to {json_path} success\n标题：{title}\n链接：{image_url}")
     else:
-        print("Failed to download json_internation")
+        print("Failed to download image")
 
 if __name__ == "__main__":
     download_image()
